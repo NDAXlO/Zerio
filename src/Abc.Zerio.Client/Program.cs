@@ -43,6 +43,9 @@ namespace Abc.Zerio.Client
                 using (client.Subscribe<OrderAckMessage>(OnMessageReceived))
                 {
                     var address = Dns.GetHostAddresses(Environment.MachineName).FirstOrDefault(x => x.AddressFamily == AddressFamily.InterNetwork);
+
+                  //  address = IPAddress.Parse("10.0.0.1");
+                 //   address = IPAddress.Parse("142.44.202.9");
                     var endPoint = new IPEndPoint(address, _port);
                     client.Connect(endPoint);
 
